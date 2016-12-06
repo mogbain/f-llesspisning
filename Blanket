@@ -1,0 +1,56 @@
+using System;
+using System.Globalization;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace Eksamens_project_prøve 
+{
+    class Blanket : SignUp
+    {
+        public String menuNavn { get; set; }
+        public DateTime Dato { get; set; }
+        public double totalPris { get; set; }
+
+        public Blanket() //default constructor
+        {
+            
+        } 
+        //Beregningen for hvor meget de skal betale i forhold til alder.
+        public double SmåBørnPris()
+        {
+            totalPris = totalPris * 0;
+            return totalPris;
+        }
+        public double BørnPris()
+        {
+            totalPris = totalPris*0.25;
+            return totalPris;
+        }
+        public double UngePris()
+        {
+            totalPris = totalPris*0.50;
+            return totalPris;
+        }
+        public double VoksenPris()
+        {
+            totalPris = totalPris*1;    
+            return totalPris;
+        }
+
+        //Totalprisen beregnes for hver hus
+        public double TotalPrisHus()
+        {
+            totalPris =  antalVoksne*VoksenPris() + antalUnge*UngePris() + antalBørn*BørnPris() +
+                        antalSmåBørn*SmåBørnPris();
+            return totalPris;
+
+        }
+
+
+    }
+
+}
